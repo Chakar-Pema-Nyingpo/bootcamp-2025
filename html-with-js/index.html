@@ -1,0 +1,68 @@
+<hmtl>
+  <head>
+    <style>
+      .items-even {
+        color: blueviolet;
+      }
+      .items-odd {
+        color: aquamarine;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+
+  <body id="the-body">
+    <div class="h-10 bg-black"></div>
+    <h1 class="font-bold text-white">Hello</h1>
+    <div id="sentence">HELLO THIS IS MY WEBSITE</div>
+    <!-- <ul id="my-list"></ul> -->
+    <input id="number1" /><input id="number2" />
+    <button id="the-button">Add</button>
+    <div id="result"></div>
+    <script>
+      const theButton = document.getElementById("the-button");
+
+      const interval = setInterval(() => {
+        const redValue = Math.round(Math.random() * 255);
+        const greenValue = Math.round(Math.random() * 255);
+        const blueValue = Math.round(Math.random() * 255);
+
+        const colorStyle =
+          "background-color: rgb(" +
+          redValue +
+          "," +
+          greenValue +
+          "," +
+          blueValue +
+          ")";
+
+        document.getElementById("the-body").setAttribute("style", colorStyle);
+      }, 1500);
+
+      document.getElementById("the-button").addEventListener("click", () => {
+        const numOne = document.getElementById("number1");
+        const numTwo = document.getElementById("number2");
+        const sum = Number(numOne.value) + Number(numTwo.value);
+        const resultElement = document.getElementById("result");
+        resultElement.innerText = sum;
+        // const myList = document.getElementById("my-list");
+        // const listItem = document.createElement("li");
+        // listItem.innerText = "Item";
+        // myList.appendChild(listItem);
+      });
+      // const myDiv = document.getElementById("sentence");
+      // myDiv.setAttribute("class", "special");
+      // const myList = document.getElementById("my-list");
+      // for (let i = 0; i < 100; i += 1) {
+      //   const listItem = document.createElement("li");
+      //   listItem.innerText = "Item " + (i + 1);
+      //   if (i % 2 === 0) {
+      //     listItem.setAttribute("class", "items-even");
+      //   } else {
+      //     listItem.setAttribute("class", "items-odd");
+      //   }
+      //   myList.appendChild(listItem);
+      // }
+    </script>
+  </body>
+</hmtl>
